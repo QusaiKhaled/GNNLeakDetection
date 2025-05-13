@@ -1,57 +1,152 @@
-Below is a revised README file tailored to the structure of your GitHub repository. It provides a general overview of the project, its purpose, and guidance on how to use the code, assuming the reader has some familiarity with the tools and concepts involved.
-Explainable Fuzzy GNNs for Leak Detection in Water Distribution Networks
-This repository contains the implementation of an explainable fuzzy graph neural network (FGNN) framework designed for detecting and localizing leaks in water distribution networks (WDNs). By integrating graph neural networks (GNNs) with fuzzy logic, the framework delivers both accurate predictions and interpretable, rule-based explanations. It was developed using the Hanoi Benchmark Network dataset (LeakDB) and serves as the official codebase for the paper "Explainable Fuzzy GNNs for Leak Detection in Water Distribution Networks" by Qusai Khaled et al., submitted to the 2025 IFSA World Congress NAFIPS.
-Overview
-The project explores various GNN architectures and introduces a fuzzy-enhanced model, combining mutual information and fuzzy logic to enhance explainability. It focuses on two primary tasks:
-Leak Detection: Graph-level classification to identify the presence of leaks.
-Leak Localization: Node-level classification to pinpoint leak locations.
-The fuzzy approach generates human-readable explanations, such as "IF Pressure at Node 1 is high AND Pressure at Node 2 is low, THEN Leak probability at Node 5 is high," making it valuable for domain experts.
-Repository Structure
-The repository is organized as follows:
-Notebooks:
-01_Reshape_data.ipynb, 01_Reshape_oldata.ipynb: Data preparation and preprocessing.
-05_GCN.ipynb, 06_GAT.ipynb: Experiments with specific GNN architectures (e.g., GCN, GAT).
-11_AnomalyDetectionScenario.ipynb: Anomaly detection use case.
-12_FeatureExtraction.ipynb: Feature extraction processes.
-Explain.ipynb: Generation of fuzzy rule-based explanations.
-Python Scripts:
-data.py, preprocess.py: Utilities for data loading and preprocessing.
-model.py: GNN model definitions, including the fuzzy variant.
-train.py, test.py: Scripts for training and evaluating models.
-grid.py, Grid search py: Tools for hyperparameter tuning.
-loss.py, tracker.py, logger.py: Helpers for loss calculation, performance tracking, and logging.
-Other:
-.gitignore: Specifies files to exclude from version control.
-Setup
-To get started:
-Clone the repository:
-bash
+Here’s a polished and concise version of your README content, suitable for a `README.md` file on GitHub. The language has been adjusted for clarity, consistency, and markdown formatting.
+
+---
+
+# Explainable Fuzzy GNNs for Leak Detection in Water Distribution Networks
+
+This repository contains the implementation of an **Explainable Fuzzy Graph Neural Network (FGNN)** framework for detecting and localizing leaks in **Water Distribution Networks (WDNs)**. By combining **Graph Neural Networks (GNNs)** with **fuzzy logic**, the model achieves both accurate predictions and interpretable, rule-based explanations.
+
+This work is based on the **Hanoi Benchmark Network dataset (LeakDB)** and accompanies the paper:
+
+> *"Explainable Fuzzy GNNs for Leak Detection in Water Distribution Networks"*
+> Qusai Khaled, Pasquale De Marinis, Moez Louati, David Ferras, Laura Genga, Uzay Kaymak
+> Submitted to the **2025 IFSA World Congress NAFIPS**
+
+---
+
+## 🔍 Overview
+
+The project investigates multiple GNN architectures and proposes a fuzzy-enhanced model that integrates **mutual information** and **fuzzy rules** to support explainable leak detection.
+
+**Main tasks:**
+
+* **Leak Detection** (Graph-level classification): Detect whether a leak exists in the network.
+* **Leak Localization** (Node-level classification): Identify the exact node or pipe with the leak.
+
+**Example explanation:**
+
+> *"IF pressure at Node 1 is high AND pressure at Node 2 is low, THEN leak probability at Node 5 is high."*
+
+This rule-based reasoning supports better decision-making for engineers and water utility managers.
+
+---
+
+## 📁 Repository Structure
+
+```
+.
+├── notebooks/                # Interactive Jupyter notebooks
+│   ├── 01_Reshape_data.ipynb
+│   ├── 01_Reshape_oldata.ipynb
+│   ├── 05_GCN.ipynb
+│   ├── 06_GAT.ipynb
+│   ├── 11_AnomalyDetectionScenario.ipynb
+│   ├── 12_FeatureExtraction.ipynb
+│   └── Explain.ipynb
+├── scripts/                  # Python source files
+│   ├── data.py
+│   ├── preprocess.py
+│   ├── model.py
+│   ├── train.py
+│   ├── test.py
+│   ├── grid.py
+│   ├── loss.py
+│   ├── tracker.py
+│   └── logger.py
+├── .gitignore
+└── README.md
+```
+
+---
+
+## ⚙️ Setup
+
+1. **Clone the repository:**
+
+```bash
 git clone https://github.com/yourusername/GNNLeakDetection.git
 cd GNNLeakDetection
-Install dependencies:
-Use Python 3.8+ and install necessary packages (e.g., PyTorch Geometric) as needed. A requirements.txt file is assumed—create one if it’s not present.
-Dataset:
-Obtain the Hanoi Benchmark Network dataset (LeakDB) from its source and place it in a suitable directory (e.g., data/). Run the preprocessing notebooks to prepare the data.
-Usage
-Training and Testing:
-Use train.py and test.py to train and evaluate models. Adjust configurations as needed via arguments or files.
-Experiments:
-Explore GNN implementations in notebooks like 05_GCN.ipynb and 06_GAT.ipynb. Use Explain.ipynb to see fuzzy explanations in action.
-Hyperparameter Tuning:
-Leverage grid.py or Grid search py to optimize model parameters.
-Results
-The framework’s performance is detailed in the paper, with the fuzzy-enhanced model providing competitive accuracy and explainability. Results are typically saved in a results/ directory.
-Citation
-If you use this code, please cite:
-bibtex
+```
+
+2. **Install dependencies:**
+
+Ensure Python 3.8+ is installed. Then install dependencies:
+
+```bash
+pip install -r requirements.txt
+```
+
+> ℹ️ You may need to install [PyTorch Geometric](https://pytorch-geometric.readthedocs.io/en/latest/notes/installation.html) separately depending on your system.
+
+3. **Prepare the dataset:**
+
+* Download the **Hanoi Benchmark Network dataset (LeakDB)**.
+* Place it in the `data/` directory or another appropriate path.
+* Use the preprocessing notebooks (`01_Reshape_data.ipynb`, etc.) to convert and prepare the data.
+
+---
+
+## 🚀 Usage
+
+### Train and Test
+
+```bash
+python train.py
+python test.py
+```
+
+> Configuration options can be modified directly in the script or through arguments.
+
+### Run Experiments
+
+Explore different GNN architectures and fuzzy logic features via:
+
+* `05_GCN.ipynb` and `06_GAT.ipynb`: GCN and GAT architectures
+* `Explain.ipynb`: View generated fuzzy rules for explainability
+
+### Hyperparameter Tuning
+
+Use:
+
+```bash
+python grid.py
+```
+
+Or refer to `Grid search py` for custom tuning setups.
+
+---
+
+## 📊 Results
+
+Performance metrics and visualizations are provided in the paper. Experimental results (e.g., accuracy, explainability) are saved in the `results/` directory after training.
+
+---
+
+## 📚 Citation
+
+If you use this repository in your research, please cite the following:
+
+```bibtex
 @article{khaled2025explainable,
   title={Explainable Fuzzy GNNs for Leak Detection in Water Distribution Networks},
   author={Khaled, Qusai and De Marinis, Pasquale and Louati, Moez and Ferras, David and Genga, Laura and Kaymak, Uzay},
   journal={2025 IFSA World Congress NAFIPS},
   year={2025}
 }
-Acknowledgments
-This work is supported by the ILUSTRE project, funded in part by the Dutch Research Council (NWO).
-Contact
-For inquiries, please open an issue on this repository.
-This README offers a high-level overview, encouraging readers to dive into the code and notebooks for specifics. Let me know if further tweaks are needed!
+```
+
+---
+
+## 🙏 Acknowledgments
+
+This work is supported by the **ILUSTRE project**, funded in part by the **Dutch Research Council (NWO)**.
+
+---
+
+## 📬 Contact
+
+For questions or suggestions, feel free to [open an issue](https://github.com/yourusername/GNNLeakDetection/issues).
+
+---
+
+Let me know if you'd like a `requirements.txt` template or badge support (e.g., license, build status) for the README as well.
