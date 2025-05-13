@@ -1,4 +1,3 @@
-Here’s a polished and concise version of your README content, suitable for a `README.md` file on GitHub. The language has been adjusted for clarity, consistency, and markdown formatting.
 
 ---
 
@@ -61,14 +60,8 @@ This rule-based reasoning supports better decision-making for engineers and wate
 
 ## ⚙️ Setup
 
-1. **Clone the repository:**
 
-```bash
-git clone https://github.com/yourusername/GNNLeakDetection.git
-cd GNNLeakDetection
-```
-
-2. **Install dependencies:**
+1. **Install dependencies:**
 
 Ensure Python 3.8+ is installed. Then install dependencies:
 
@@ -78,7 +71,7 @@ pip install -r requirements.txt
 
 > ℹ️ You may need to install [PyTorch Geometric](https://pytorch-geometric.readthedocs.io/en/latest/notes/installation.html) separately depending on your system.
 
-3. **Prepare the dataset:**
+2. **Prepare the dataset:**
 
 * Download the **Hanoi Benchmark Network dataset (LeakDB)**.
 * Place it in the `data/` directory or another appropriate path.
@@ -99,10 +92,7 @@ python test.py
 
 ### Run Experiments
 
-Explore different GNN architectures and fuzzy logic features via:
-
-* `05_GCN.ipynb` and `06_GAT.ipynb`: GCN and GAT architectures
-* `Explain.ipynb`: View generated fuzzy rules for explainability
+Explore different GNN architectures and fuzzy logic features 
 
 ### Hyperparameter Tuning
 
@@ -146,6 +136,8 @@ This work is supported by the **ILUSTRE project**, funded in part by the **Dutch
 ## 📬 Contact
 
 For questions or suggestions, feel free to [open an issue](https://github.com/yourusername/GNNLeakDetection/issues).
+or email
+qusai.khaled@ieee.org
 
 ---
 
